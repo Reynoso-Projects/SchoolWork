@@ -1,0 +1,62 @@
+
+import java.util.Stack;
+
+/**
+ * Part A — small stack warmups.
+ * Runtime notes:
+ *  - reverseDigits: O(D) where D is # of digits
+ *  - fromArray: O(N) where N is array length
+ */
+public class StackWarmup {
+
+    /**
+     * Uses a stack to reverse the digits of n.
+     * Examples: 12340 -> 4321, 0 -> 0, -123 -> -321
+     */
+    public static int reverseDigits(int n) {
+        // TODO: Handle sign; work with abs value
+        boolean isNeg = n < 0;
+        int abs = Math.abs(n);
+
+        if(abs <= 9){
+            return n;
+        }
+        // TODO: Push each digit (n % 10) onto a Stack<Integer>
+        Stack<Integer> st = new Stack<>();
+
+        while(abs == 0){
+            st.push(abs%10);
+            abs = abs/10;
+        }
+
+        // TODO: Pop digits to reconstruct reversed number
+        int rev = 0;
+
+        while(!st.isEmpty()){
+            rev = rev * 10 + st.pop();
+        }
+        // TODO: Restore sign and return
+        if(isNeg == true){
+            rev = -rev;
+        }
+        return rev; // TODO: replace with result
+    }
+
+    /**
+     * Pushes items of a[] into a stack so that a[a.length-1] becomes the top.
+     * If a is null, throw IllegalArgumentException.
+     */
+    public static Stack<Integer> fromArray(int[] a) {
+        // TODO: Validate input
+        // TODO: Create a new Stack<Integer>
+        // TODO: Push each element of a in order so last element ends up on top
+        return null; // TODO: return the constructed stack
+    }
+
+    // Optional self-test
+    public static void main(String[] args) {
+        System.out.println("StackWarmup self-test (optional).");
+        // TODO: Add quick checks if you want
+        System.out.println(reverseDigits(12340));
+    }
+}
